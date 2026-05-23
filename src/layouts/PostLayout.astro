@@ -1,0 +1,75 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+  readingMinutes: number;
+}
+
+const { post, readingMinutes } = Astro.props;
+const { title, description, date, category, heroImage, heroAlt, heroCredit, tags } = post.data;
+
+const fmt = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" }).format(date);
+---
+
+<BaseLayout title={`${title} — Aathila Thasneem`} description={description} image={heroImage}>
+  <article>
+    <header class="mx-auto max-w-[var(--container-prose)] px-6 pt-12 md:pt-16">
+      <div class="flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.2em] text-[var(--color-ink-mute)]">
+        <span class={`px-2 py-0.5 rounded ${category === "Science" ? "bg-[var(--color-accent-soft)] text-[var(--color-accent-deep)]" : "bg-[var(--color-blush)]/60 text-[#9d174d]"}`}>
+          {category}
+        </span>
+        <span>{fmt}</span>
+        <span class="text-[var(--color-rule)]">/</span>
+        <span>{readingMinutes} min read</span>
+      </div>
+      <h1 class="mt-5 text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight font-medium text-[var(--color-ink)]">
+        {title}
+      </h1>
+      <p class="mt-5 text-lg text-[var(--color-ink-soft)] leading-relaxed font-[var(--font-display)] italic">
+        {description}
+      </p>
+    </header>
+
+    {heroImage && (
+      <div class="mx-auto max-w-[var(--container-wide)] px-6 mt-10">
+        <figure>
+          <div class="overflow-hidden rounded-xl aspect-[16/9] bg-[var(--color-rule)]">
+            <img src={heroImage} alt={heroAlt ?? title} class="h-full w-full object-cover" />
+          </div>
+          {heroCredit && (
+            <figcaption class="mt-2 text-xs text-[var(--color-ink-mute)] text-center">
+              {heroCredit}
+            </figcaption>
+          )}
+        </figure>
+      </div>
+    )}
+
+    <div class="mx-auto max-w-[var(--container-prose)] px-6 mt-12">
+      <div class="prose-aathila">
+        <slot />
+      </div>
+
+      {tags.length > 0 && (
+        <div class="mt-14 pt-8 border-t border-[var(--color-rule)] flex flex-wrap gap-2">
+          {tags.map(tag => (
+            <span class="text-xs px-2.5 py-1 rounded-full bg-[var(--color-paper)] border border-[var(--color-rule)] text-[var(--color-ink-mute)]">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div class="mt-10 text-center py-10">
+        <div class="font-[var(--font-display)] italic text-[var(--color-ink-soft)] text-lg">
+          — Aathila
+        </div>
+        <a href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/writing`} class="inline-block mt-6 no-underline text-sm text-[var(--color-accent-deep)] font-medium">
+          ← Back to all writing
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

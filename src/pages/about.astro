@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BaseLayout title="About — Aathila Thasneem" description="About Aathila Thasneem, microbiology master's student and science writer based in Chennai.">
+  <section class="mx-auto max-w-[var(--container-wide)] px-6 pt-16 md:pt-20 pb-16">
+    <div class="grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div class="md:col-span-5">
+        <div class="overflow-hidden rounded-xl aspect-square bg-gradient-to-br from-[var(--color-accent-soft)] to-[var(--color-blush)] sticky top-28">
+          <img src={`${base}/images/aathila-portrait.jpg`} alt="Aathila — illustration at her microbiology lab" class="h-full w-full object-cover" />
+        </div>
+      </div>
+      <div class="md:col-span-7">
+        <p class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">About</p>
+        <h1 class="mt-3 text-4xl md:text-5xl font-medium text-[var(--color-ink)] leading-[1.1] tracking-tight">
+          A microbiology grad student with a soft spot for the unseen world.
+        </h1>
+
+        <div class="prose-aathila mt-8">
+          <p>
+            Hi, I'm Aathila Thasneem. I'm a master's student in microbiology at Meenakshi Chandrasekaran
+            College for Women in Chennai, and I've been quietly obsessed with the microbial world since
+            I first looked through a microscope and realised that "empty" is one of the laziest words in
+            the English language. Nothing is empty. Everything is alive.
+          </p>
+          <p>
+            My research lives in the overlap between <em>food microbiology</em>, <em>probiotics</em>, and
+            the search for natural antimicrobials. I've spent time understanding how
+            <em>Citrus limon</em> can hold its own against food-spoilage fungi, formulating a probiotic
+            beetroot drink with <em>Lactobacillus plantarum</em>, and developing a coconut-water-based
+            functional beverage. Long story short: a lot of my time is spent thinking about the very small
+            things that make our food taste, last, and feel the way it does.
+          </p>
+          <p>
+            Outside the lab I tutor IX, SSLC and HSE students — mostly in biology and chemistry — and I
+            write here, on <em>The Cultured Crew</em>. The blog is partly to explain microbiology to
+            people who don't necessarily care for it, and partly an excuse to write about anything else:
+            evenings on terraces, choosing the unconventional path, the parts of life that don't fit on a
+            CV.
+          </p>
+          <p>
+            If you're curious about microbes, food safety, or just want to chat about science writing —
+            I'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 gap-5">
+          <div class="p-5 rounded-xl border border-[var(--color-rule)] bg-[var(--color-paper)]">
+            <p class="text-[0.7rem] uppercase tracking-[0.18em] text-[var(--color-ink-mute)]">Currently</p>
+            <p class="mt-2 text-[var(--color-ink)] font-medium">M.Sc. Microbiology</p>
+            <p class="text-sm text-[var(--color-ink-soft)]">2024–2026 · Chennai, India</p>
+          </div>
+          <div class="p-5 rounded-xl border border-[var(--color-rule)] bg-[var(--color-paper)]">
+            <p class="text-[0.7rem] uppercase tracking-[0.18em] text-[var(--color-ink-mute)]">Interests</p>
+            <p class="mt-2 text-[var(--color-ink)] font-medium leading-snug text-sm">
+              Food microbiology · Probiotics · Food safety · Natural antimicrobials
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href={`${base}/cv`} class="no-underline inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--color-ink)] text-white text-sm font-medium hover:bg-[var(--color-accent-deep)] transition-colors">View CV</a>
+          <a href={`${base}/research`} class="no-underline inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--color-rule)] text-[var(--color-ink)] text-sm font-medium hover:border-[var(--color-accent)] transition-colors">See research</a>
+          <a href={`${base}/contact`} class="no-underline inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--color-rule)] text-[var(--color-ink)] text-sm font-medium hover:border-[var(--color-accent)] transition-colors">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

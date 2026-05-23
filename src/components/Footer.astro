@@ -1,0 +1,17 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-[var(--color-rule)] bg-[var(--color-paper)]">
+  <div class="mx-auto max-w-[var(--container-wide)] px-6 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="text-sm text-[var(--color-ink-mute)]">
+      © {year} Aathila Thasneem · All writing is her own.
+    </div>
+    <div class="flex items-center gap-5 text-sm">
+      <a href="mailto:aathilathasneem121@gmail.com" class="no-underline text-[var(--color-ink-soft)] hover:text-[var(--color-accent-deep)]">Email</a>
+      <a href="https://www.linkedin.com/in/aathila-thasneem" target="_blank" rel="noopener" class="no-underline text-[var(--color-ink-soft)] hover:text-[var(--color-accent-deep)]">LinkedIn</a>
+      <a href={`${base}/rss.xml`} class="no-underline text-[var(--color-ink-soft)] hover:text-[var(--color-accent-deep)]">RSS</a>
+    </div>
+  </div>
+</footer>

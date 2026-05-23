@@ -1,0 +1,26 @@
+# Build output
+dist/
+.astro/
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Env
+.env
+.env.local
+
+# Playwright / dev artifacts
+.playwright-mcp/
+*.png
+!public/**/*.png

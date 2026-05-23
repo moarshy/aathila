@@ -1,0 +1,63 @@
+backend:
+  name: github
+  repo: moarshy/aathila         # change to <username>/<repo> if forked / transferred
+  branch: main
+  base_url: https://api.netlify.com  # uses Netlify's free OAuth provider for GitHub login
+  auth_endpoint: auth
+
+# Folder where uploaded images go (relative to repo root)
+media_folder: "public/images/uploads"
+public_folder: "/aathila/images/uploads"
+
+# Friendlier publishing — saves drafts as PRs before merging to main
+publish_mode: editorial_workflow
+
+site_url: https://moarshy.github.io/aathila
+display_url: https://moarshy.github.io/aathila
+logo_url: https://moarshy.github.io/aathila/favicon.svg
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    label_singular: "Post"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}} — {{category}} · {{date | date('YYYY-MM-DD')}}"
+    sortable_fields: ["date", "title", "category"]
+    view_filters:
+      - label: "Science only"
+        field: "category"
+        pattern: "Science"
+      - label: "Personal only"
+        field: "category"
+        pattern: "Personal"
+      - label: "Drafts"
+        field: "draft"
+        pattern: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "Headline shown on the post and post cards." }
+      - { label: "Subtitle / Description", name: "description", widget: "text", hint: "1–2 sentence summary shown under the title and in post cards. Plain text." }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Science", "Personal"]
+        hint: "Pick one. 'Science' for microbiology/lab/food-science posts. 'Personal' for everything else."
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        default: []
+        hint: "Optional. Comma-separated keywords (e.g. probiotics, microbes, reflection)."
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Show this post as the big hero on the homepage." }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, hint: "Hide from the live site while you keep working on it." }
+      - label: "Hero image"
+        name: "heroImage"
+        widget: "image"
+        required: false
+        hint: "Big photo at the top of the post. ~1600px wide is plenty."
+      - { label: "Hero image alt text", name: "heroAlt", widget: "string", required: false, hint: "Describe the image for screen readers (e.g. 'milk pouring into a glass')." }
+      - { label: "Hero image credit", name: "heroCredit", widget: "string", required: false, hint: "If you used an Unsplash photo, paste 'Photo by NAME on Unsplash' here." }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Write your post here. You can use **bold**, *italic*, headings (##), lists, links, and images." }

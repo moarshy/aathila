@@ -1,0 +1,184 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const education = [
+  { degree: "M.Sc. Microbiology", school: "Meenakshi Chandrasekaran College for Women", years: "2024 – 2026", grade: "CGPA 8.5" },
+  { degree: "B.Sc. Microbiology", school: "Sengamala Thayaar Educational Trust College", years: "2021 – 2024", grade: "CGPA 9.5" },
+  { degree: "Diploma in Medical Laboratory Technology (DMLT)", school: "Bharathidasan University", years: "2024", grade: "" },
+  { degree: "Diploma in Computer Application", school: "Bharathidasan University", years: "2017", grade: "CGPA 9.2" },
+  { degree: "Higher Secondary (PCMB)", school: "Rahmath Girls Matric Higher Secondary School", years: "2021", grade: "" },
+];
+
+const experience = [
+  {
+    role: "Academic Supporter",
+    org: "Brilliant Matriculation Higher Secondary School, Muthupet",
+    period: "June 2025 – Present",
+    bullets: [
+      "Guided IX, SSLC, and HSE (PCMB) students through academic mentoring and subject support.",
+      "Improved student engagement and conceptual understanding through interactive teaching methods.",
+      "Assisted students in examination preparation and performance improvement.",
+    ],
+  },
+  {
+    role: "Intern",
+    org: "Malar Laboratory",
+    period: "October 2023 – March 2024",
+    bullets: [
+      "Performed biological sample preparation and microbiological analysis.",
+      "Assisted in laboratory operations, documentation, and equipment handling.",
+      "Maintained laboratory safety, accuracy, and sample integrity.",
+    ],
+  },
+];
+
+const research = [
+  { title: "Citrus limon as a Natural Antifungal Agent in Food Products", bullet: "Investigated antifungal properties of Citrus limon extracts against food-spoilage fungi; evaluated potential as a natural food preservative." },
+  { title: "Formulation of Probiotic Beetroot Drink", bullet: "Studied Lactobacillus plantarum for probiotic survival and pathogen inhibition; developed a functional probiotic beverage." },
+  { title: "Development of Coconut Water-Based Functional Beverage", bullet: "Analyzed probiotic viability and microbial stability; evaluated preservation and quality parameters." },
+];
+
+const technical = [
+  "Microbial Culture Techniques",
+  "Media Preparation & Sterilization",
+  "Food & Industrial Microbiology",
+  "Probiotic Formulation & Antifungal Analysis",
+  "Laboratory Equipment Handling",
+  "Sample Processing & Documentation",
+  "Quality Control & Laboratory Safety",
+  "Molecular Biology Basics",
+];
+
+const professional = [
+  "Scientific Communication",
+  "Research & Analytical Thinking",
+  "Team Collaboration",
+  "Academic Mentoring",
+  "Time Management & Problem Solving",
+];
+---
+
+<BaseLayout title="CV — Aathila Thasneem" description="Curriculum vitae of Aathila Thasneem — M.Sc. Microbiology, food microbiology and probiotic research.">
+  <section class="mx-auto max-w-[var(--container-prose)] px-6 pt-14 md:pt-20 pb-6">
+    {/* Top identity */}
+    <header class="pb-8 border-b border-[var(--color-rule)]">
+      <h1 class="text-4xl md:text-5xl font-medium text-[var(--color-ink)] tracking-tight">
+        Aathila Thasneem Abdul Malik
+      </h1>
+      <p class="mt-3 font-[var(--font-display)] italic text-lg text-[var(--color-ink-soft)]">
+        M.Sc. Microbiology · DMLT · Research-oriented microbiology graduate
+      </p>
+      <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--color-ink-soft)]">
+        <a href="mailto:malikarab31@gmail.com" class="no-underline hover:text-[var(--color-accent-deep)]">malikarab31@gmail.com</a>
+        <span>+91 8526396514</span>
+        <span>Chennai, India</span>
+        <a href="https://www.linkedin.com/in/aathila-thasneem" target="_blank" rel="noopener" class="no-underline hover:text-[var(--color-accent-deep)]">LinkedIn</a>
+      </div>
+      <div class="mt-5 no-print">
+        <button onclick="window.print()" class="text-sm px-4 py-1.5 rounded-full border border-[var(--color-rule)] text-[var(--color-ink-soft)] hover:border-[var(--color-accent)] cursor-pointer">
+          Print / Save as PDF
+        </button>
+      </div>
+    </header>
+
+    {/* Profile */}
+    <section class="py-8">
+      <h2 class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">Profile</h2>
+      <p class="mt-3 text-[var(--color-ink-soft)] leading-relaxed">
+        Motivated and research-oriented M.Sc. Microbiology student with hands-on laboratory experience in
+        microbiological analysis, food microbiology, and probiotic formulations. Skilled in microbial
+        culture techniques, media preparation, laboratory diagnostics, and scientific documentation.
+        Passionate about food safety, industrial microbiology, and innovative biological solutions —
+        with strong communication, analytical, and academic mentoring abilities.
+      </p>
+    </section>
+
+    {/* Education */}
+    <section class="py-6 border-t border-[var(--color-rule)]">
+      <h2 class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">Education</h2>
+      <div class="mt-4 space-y-5">
+        {education.map(e => (
+          <div class="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-4">
+            <div class="flex-1">
+              <p class="text-[var(--color-ink)] font-medium">{e.degree}</p>
+              <p class="text-sm text-[var(--color-ink-soft)]">{e.school}</p>
+            </div>
+            <div class="text-sm text-[var(--color-ink-mute)] md:text-right whitespace-nowrap">
+              <div>{e.years}</div>
+              {e.grade && <div class="text-[var(--color-accent-deep)] font-medium">{e.grade}</div>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Experience */}
+    <section class="py-6 border-t border-[var(--color-rule)]">
+      <h2 class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">Professional Experience</h2>
+      <div class="mt-4 space-y-7">
+        {experience.map(x => (
+          <div>
+            <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+              <p class="text-[var(--color-ink)] font-medium">{x.role} <span class="text-[var(--color-ink-soft)] font-normal">— {x.org}</span></p>
+              <p class="text-sm text-[var(--color-ink-mute)]">{x.period}</p>
+            </div>
+            <ul class="mt-2 space-y-1.5 text-[var(--color-ink-soft)] text-[0.95rem]">
+              {x.bullets.map(b => (
+                <li class="flex gap-2"><span class="text-[var(--color-accent-deep)] mt-1.5">·</span><span>{b}</span></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Research */}
+    <section class="py-6 border-t border-[var(--color-rule)]">
+      <h2 class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">Research Projects</h2>
+      <div class="mt-4 space-y-4">
+        {research.map(r => (
+          <div>
+            <p class="text-[var(--color-ink)] font-medium">{r.title}</p>
+            <p class="mt-1 text-[var(--color-ink-soft)] text-[0.95rem]">{r.bullet}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Publication */}
+    <section class="py-6 border-t border-[var(--color-rule)]">
+      <h2 class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">Publication</h2>
+      <div class="mt-4">
+        <p class="text-[var(--color-ink)] font-medium">Conservation of Natural Resources</p>
+        <p class="text-[var(--color-ink-soft)] italic">Environment and Climatic Changes — Volume I</p>
+        <p class="text-sm text-[var(--color-ink-mute)] font-mono mt-1">ISBN: 978-93-94638-83-9</p>
+      </div>
+    </section>
+
+    {/* Skills */}
+    <section class="py-6 border-t border-[var(--color-rule)] grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">Technical Skills</h2>
+        <ul class="mt-4 space-y-1.5 text-[var(--color-ink-soft)] text-[0.95rem]">
+          {technical.map(s => <li class="flex gap-2"><span class="text-[var(--color-accent-deep)] mt-1.5">·</span><span>{s}</span></li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">Professional Skills</h2>
+        <ul class="mt-4 space-y-1.5 text-[var(--color-ink-soft)] text-[0.95rem]">
+          {professional.map(s => <li class="flex gap-2"><span class="text-[var(--color-accent-deep)] mt-1.5">·</span><span>{s}</span></li>)}
+        </ul>
+      </div>
+    </section>
+
+    {/* Additional */}
+    <section class="py-6 border-t border-[var(--color-rule)]">
+      <h2 class="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ink-mute)]">Additional Information</h2>
+      <div class="mt-4 space-y-2 text-[var(--color-ink-soft)] text-[0.95rem]">
+        <p><span class="text-[var(--color-ink)] font-medium">Languages:</span> Tamil, English, Arabic (Beginner)</p>
+        <p><span class="text-[var(--color-ink)] font-medium">Certification:</span> Muballigah — Educated Teacher of Islamic Sciences</p>
+        <p><span class="text-[var(--color-ink)] font-medium">Research Interests:</span> Food Microbiology, Food Safety, Industrial Microbiology, Probiotics, Natural Antimicrobial Agents</p>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
